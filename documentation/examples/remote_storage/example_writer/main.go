@@ -91,6 +91,7 @@ func buildWriteRequest(samples []prompb.TimeSeries, metadata []prompb.MetricMeta
 	} else {
 		pBuf.Reset()
 	}
+
 	err := pBuf.Marshal(req)
 	if err != nil {
 		return nil, highest, err
@@ -101,6 +102,7 @@ func buildWriteRequest(samples []prompb.TimeSeries, metadata []prompb.MetricMeta
 	if buf != nil {
 		buf = buf[0:cap(buf)]
 	}
+
 	compressed := snappy.Encode(buf, pBuf.Bytes())
 	return compressed, highest, nil
 }

@@ -12,10 +12,14 @@
 # limitations under the License.
 
 
-include ../../../Makefile.common
+# include ../../../Makefile.common
+
+GO ?= go
 
 build:
 	@echo ">> building example_write_adapter"
 	@$(GO) build -o example_write_adapter/example_write_adapter ./example_write_adapter
+	@echo ">> building example_writer"
+	@$(GO) build -o example_writer/example_writer ./example_writer
 	@echo ">> building remote_storage_adapter"
 	@$(GO) build -o remote_storage_adapter/remote_storage_adapter ./remote_storage_adapter
